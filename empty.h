@@ -6,7 +6,6 @@
 #define INC_05_PILES_EMPTY_H
 #include <array>
 
-using namespace std;
 
-bool empty(size_t compteur);
+bool empty(std::size_t compteur);
 #endif //INC_05_PILES_EMPTY_H

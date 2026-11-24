@@ -11,4 +11,10 @@ add_executable(05_Piles
         top.cpp
         empty.h
         empty.cpp
+        size.h
+        size.cpp
+        clear.h
+        clear.cpp
+        push.h
+        push.cpp
 )

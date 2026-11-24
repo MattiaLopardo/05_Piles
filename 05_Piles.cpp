@@ -7,6 +7,7 @@
 #include "pop.h"
 #include "top.h"
 #include "empty.h"
+#include "push.h"
 
 using namespace std;
 
@@ -17,7 +18,7 @@ int main() {
     array<int,valeur> tbl {};
 
     cout << "Ce programme permet de manipuler une pile d'entiers." << endl;
-    int entree = 0;
+    int select = 0;
     do {
         cout << "1 - Empiler\n"
              << "2 - Dépiler\n"
@@ -28,20 +29,55 @@ int main() {
              << "7 - Vider la pile\n"
              << "8 - Afficher toute la pile\n"
              << "0 - Quitter" << endl;
-        cin >> entree;
+        cin >> select;
+    int valeur = 0;
 
-        switch (entree) {
-            case 1: cout << 1 << endl; break;
-                case 2: pop(compteur); break;
-                case 3: cout << 3 << endl; break;
-                case 4: cout << 4 << endl; break;
+        cout << "valeur : " << endl;
+        cin >> valeur;
+
+        switch (select) {
+                case 1:
+                try {
+                    push( compteur, tbl, valeur);
+                    cout << "Valeur empilée." << endl;
+                }
+                   catch (const std::overflow_error& e) {
+                    cerr << "Erreur : " << e.what() << endl;
+                   }
+                    break;
+                case 2:
+                try {
+                    pop(compteur);
+                    cout << "Valeur retirée : " << endl;
+                }
+                    catch (const std::underflow_error& e) {
+                        cerr << "Erreur : " << e.what() << endl;
+                    }
+                break;
+                case 3:
+                try {
+                    top(tbl, compteur);
+                }
+                catch (const std::underflow_error& e) {
+                    cerr << "Erreur : " << e.what() << endl;
+                }
+                break;
+                case 4:
+                try {
+                    top(tbl, compteur);
+
+                }
+                catch (const std::underflow_error& e) {
+                    cerr << "Erreur : " << e.what() << endl;
+                }
+                break;
                 case 5: cout << 5 << endl; break;
                 case 6: cout << 6 << endl; break;
                 case 7: cout << 7 << endl; break;
                 case 8: cout << 8 << endl; break;
                 default: cout << "default" << endl; break;
         }
-    }while (entree != 0);
+    }while (select != 0);
 
     /*for (size_t i = 0; i < valeur; i++) {
         if (tbl.at(i) != 0) {
@@ -49,7 +85,6 @@ int main() {
         }
     }
 */
-    cout << compteur << endl;
 
     return EXIT_SUCCESS;
 }

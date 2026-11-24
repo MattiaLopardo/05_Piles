@@ -9,6 +9,11 @@ using namespace std;
 
 void pop(size_t& compteur) {
 
-        compteur -= 1;
+        if (compteur == 0) {
+                throw std::underflow_error("impossible de dépiler une pile vide.");
+        }
+        else {
+                compteur--;
+        }
 
 }
