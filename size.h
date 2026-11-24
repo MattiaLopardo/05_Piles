@@ -4,8 +4,9 @@
 
 #ifndef INC_05_PILES_SIZE_H
 #define INC_05_PILES_SIZE_H
+#include <cstddef>
 
 
-int size (int compteur);
+std::size_t size(std::size_t compteur);
 
 #endif //INC_05_PILES_SIZE_H

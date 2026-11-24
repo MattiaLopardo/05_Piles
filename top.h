@@ -6,7 +6,7 @@
 #define INC_05_PILES_TOP_H
 #include <array>
 
-int top(const std::array<int,5> tbl,size_t compteur, int entree);
+void top(const std::array<int,5> tbl,size_t compteur, int entree);
 
 int& top(std::array<int,5>& tbl,size_t compteur);
 
