@@ -43,7 +43,7 @@ int main() {
         cin >> valeur;*/
 
         switch (select) {
-                case 1:
+                case 1://OK
                 cout << "Votre choix : 1" << endl;
                 try {
                     push( compteur, tbl, valeur);
@@ -53,7 +53,7 @@ int main() {
                     cout << "Erreur : " << e.what() << endl;
                    }
                     break;
-                case 2:
+                case 2://OK
                 cout << "Votre choix : 2" << endl;
                 try {
                     pop(tbl,compteur);
@@ -63,36 +63,35 @@ int main() {
                         cout << "Erreur : " << e.what() << endl;
                     }
                 break;
-                //Comment faire l'affichage ???????????????????
-                case 3:
+                case 3:// LA surcharge de TOP ne marche pas
                 cout << "Votre choix : 3" << endl;
                 try {
                     top(tbl, compteur);
-                    cout << "Sommet : " << tbl.at(compteur-1) << endl;
+
                 }
                 catch (const std::underflow_error& e) {
                     cout << "Erreur : " << e.what() << endl;
                 }
                 break;
-                case 4:
+                case 4:// LA surcharge de TOP ne marche pas
                 cout << "Votre choix : 4" << endl;
                 try {
-                    top(tbl, compteur);
-                    cout << "Sommet : " << tbl.at(compteur-1) << endl;
+
+                    cout << "Sommet : " << top(tbl,compteur,valeur) << endl;
                 }
                 catch (const std::underflow_error& e) {
                     cout << "Erreur : " << e.what() << endl;
                 }
                 break;
-                case 5:
+                case 5://OK
                 cout << "Votre choix : 5" << endl;
                 afficher_empty(compteur);
                 break;
-                case 6:
+                case 6://OK
                 cout << "Votre choix : 6" << endl;
                 cout << "Nombre de valeurs : " << size(compteur) << endl;
                 break;
-                case 7:
+                case 7://OK
                 cout << "Votre choix : 7" << endl;
                 clear(compteur);
                 cout << "Pile vidée." << endl;
