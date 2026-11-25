@@ -19,4 +19,5 @@ add_executable(05_Piles
         push.cpp
         show.h
         show.cpp
+        capacite.h
 )

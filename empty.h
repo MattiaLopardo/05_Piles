@@ -4,9 +4,9 @@
 
 #ifndef INC_05_PILES_EMPTY_H
 #define INC_05_PILES_EMPTY_H
-#include <array>
+#include <cstddef>
 
 
-bool empty(std::size_t compteur);
+bool empty(const std::size_t& compteur);
 
 #endif //INC_05_PILES_EMPTY_H

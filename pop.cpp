@@ -1,20 +1,16 @@
 //
 // Created by matti on 18.11.2026.
 //
-#include <iostream>
 #include <stdexcept>
 #include "pop.h"
-#include <array>
 
 using namespace std;
 
-void pop(array<int,5> tbl, size_t& compteur) {
+void pop(size_t& compteur) {
 
         if (compteur == 0) {
                 throw std::underflow_error("impossible de dépiler une pile vide.");
         }
-        else {
                 compteur--;
-        }
 
 }

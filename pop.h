@@ -3,8 +3,8 @@
 //
 #ifndef INC_05_PILES_POP_H
 #define INC_05_PILES_POP_H
+#include <cstddef>
 
-
-void pop(std::array<int,5> tbl, std::size_t& compteur);
+void pop(std::size_t& compteur);
 
 #endif //INC_05_PILES_POP_H

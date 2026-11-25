@@ -13,12 +13,12 @@
 #include "clear.h"
 #include "size.h"
 #include "show.h"
+#include "capacite.h"
 
 using namespace std;
 
 int main() {
     SetConsoleOutputCP(CP_UTF8); // Permet d'afficher des lettres accentuées
-    const int capacite = 5;
     size_t compteur{};
 
     array<int,capacite> tbl {};
@@ -26,7 +26,11 @@ int main() {
 
 
     cout << "Ce programme permet de manipuler une pile d'entiers." << endl;
-    cout << "1 - Empiler\n"
+
+    int select{};
+    do {
+        cout << "\n"
+     << "1 - Empiler\n"
      << "2 - Dépiler\n"
      << "3 - Consulter le sommet\n"
      << "4 - Modifier l'élément au sommet\n"
@@ -34,18 +38,17 @@ int main() {
      << "6 - Afficher le nombre de valeurs\n"
      << "7 - Vider la pile\n"
      << "8 - Afficher toute la pile\n"
-     << "0 - Quitter" << endl;
-
-    int select{};
-    do {
+     << "0 - Quitter\n"
+     << "\n"
+     << "Votre choix : ";
         cin >> select;
+
     int valeur{};
 
 
         switch (select) {
                 case 1://OK
-                cout << "Votre choix : 1" << endl;
-                cout << "valeur : " << endl;
+                cout << "Valeur : ";
                 cin >> valeur;
                 try {
                     push( compteur, tbl, valeur);
@@ -56,9 +59,8 @@ int main() {
                    }
                     break;
                 case 2://OK
-                cout << "Votre choix : 2" << endl;
                 try {
-                    pop(tbl,compteur);
+                    pop(compteur);
                     cout << "Valeur retirée : " << tbl.at(compteur) << endl;
                 }
                     catch (const std::underflow_error& e) {
@@ -66,7 +68,6 @@ int main() {
                     }
                 break;
                 case 3://OK
-                cout << "Votre choix : 3" << endl;
                 try {
                     int Sommet_lecture{};
                     Sommet_lecture = top(tbl_lecture, compteur);
@@ -78,8 +79,7 @@ int main() {
                 }
                 break;
                 case 4://OK
-                cout << "Votre choix : 4" << endl;
-                cout << "Valeur de remplacement : " << endl;
+                cout << "Valeur de remplacement : ";
                 cin >> valeur;
                 try {
                     top(tbl,compteur) = valeur;
@@ -90,7 +90,6 @@ int main() {
                 }
                 break;
                 case 5://OK
-                cout << "Votre choix : 5" << endl;
 
                 if (empty(compteur)) {
                     cout << "La pile est vide." << endl;
@@ -101,16 +100,13 @@ int main() {
 
                 break;
                 case 6://OK
-                cout << "Votre choix : 6" << endl;
                 cout << "Nombre de valeurs : " << size(compteur) << endl;
                 break;
                 case 7://OK
-                cout << "Votre choix : 7" << endl;
                 clear(compteur);
                 cout << "Pile vidée." << endl;
                 break;
                 case 8://OK
-                cout << "Votre choix : 8" << endl;
 
                 show(tbl_lecture,compteur);
 
@@ -118,6 +114,8 @@ int main() {
                 default: break;
         }
     }while (select != 0);
+
+    cout << "Fin de programme." << endl;
 
     return EXIT_SUCCESS;
 }

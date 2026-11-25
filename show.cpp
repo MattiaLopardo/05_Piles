@@ -2,15 +2,13 @@
 // Created by matti on 25.11.2026.
 //
 #include "show.h"
-
 #include <iomanip>
-
 #include "empty.h"
 #include <iostream>
 
 using namespace std;
 
-void show(const std::array<int, 5>& tbl, size_t compteur) {
+void show(const std::array<int, capacite>& tbl, size_t compteur) {
 
     if (empty(compteur)) {
         cout << "La pile est vide." << endl;
@@ -29,7 +27,7 @@ void show(const std::array<int, 5>& tbl, size_t compteur) {
                 break;
             }
 
-            cout << setw(11) << tbl.at(compteur-i) << endl;
+            cout << setw(12) << tbl.at(compteur-i) << endl;
 
         }
 

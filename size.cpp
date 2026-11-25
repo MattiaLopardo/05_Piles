@@ -5,6 +5,6 @@
 
 using namespace std;
 
-size_t size(size_t compteur) {
+size_t size(const size_t& compteur) {
     return compteur;
 }

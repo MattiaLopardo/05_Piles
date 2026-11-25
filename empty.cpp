@@ -3,12 +3,11 @@
 //
 #include "empty.h"
 
-#include <iostream>
-#include <ostream>
+
 
 using namespace std;
 
-bool empty(size_t compteur) {
+bool empty(const size_t& compteur) {
 
     if (compteur == 0) {return true;}
     else {return false;}

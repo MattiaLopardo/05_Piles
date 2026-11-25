@@ -7,6 +7,6 @@
 #include <cstddef>
 
 
-std::size_t size(std::size_t compteur);
+std::size_t size(const std::size_t& compteur);
 
 #endif //INC_05_PILES_SIZE_H
