@@ -17,4 +17,6 @@ add_executable(05_Piles
         clear.cpp
         push.h
         push.cpp
+        show.h
+        show.cpp
 )

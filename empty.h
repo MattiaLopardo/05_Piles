@@ -9,5 +9,4 @@
 
 bool empty(std::size_t compteur);
 
-void afficher_empty(std::size_t compteur);
 #endif //INC_05_PILES_EMPTY_H

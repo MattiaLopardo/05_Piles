@@ -3,8 +3,6 @@
 //
 #include "clear.h"
 
-#include <cstddef>
-
 using namespace std;
 
 void clear(std::size_t& compteur) {

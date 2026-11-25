@@ -10,18 +10,20 @@
 #include "empty.h"
 #include "push.h"
 #include <windows.h>
-
 #include "clear.h"
 #include "size.h"
+#include "show.h"
 
 using namespace std;
 
 int main() {
     SetConsoleOutputCP(CP_UTF8); // Permet d'afficher des lettres accentuées
     const int capacite = 5;
-    size_t compteur = 5;
+    size_t compteur{};
 
-    array<int,capacite> tbl {1,2,3,4,5};
+    array<int,capacite> tbl {};
+    const array<int,capacite>& tbl_lecture = tbl;
+
 
     cout << "Ce programme permet de manipuler une pile d'entiers." << endl;
     cout << "1 - Empiler\n"
@@ -34,17 +36,17 @@ int main() {
      << "8 - Afficher toute la pile\n"
      << "0 - Quitter" << endl;
 
-    int select = 0;
+    int select{};
     do {
         cin >> select;
-    int valeur = 0;
+    int valeur{};
 
-        /*cout << "valeur : " << endl;
-        cin >> valeur;*/
 
         switch (select) {
                 case 1://OK
                 cout << "Votre choix : 1" << endl;
+                cout << "valeur : " << endl;
+                cin >> valeur;
                 try {
                     push( compteur, tbl, valeur);
                     cout << "Valeur empilée." << endl;
@@ -63,21 +65,25 @@ int main() {
                         cout << "Erreur : " << e.what() << endl;
                     }
                 break;
-                case 3:// LA surcharge de TOP ne marche pas
+                case 3://OK
                 cout << "Votre choix : 3" << endl;
                 try {
-                    top(tbl, compteur);
+                    int Sommet_lecture{};
+                    Sommet_lecture = top(tbl_lecture, compteur);
+                    cout << "Sommet : " << Sommet_lecture << endl;
 
                 }
                 catch (const std::underflow_error& e) {
                     cout << "Erreur : " << e.what() << endl;
                 }
                 break;
-                case 4:// LA surcharge de TOP ne marche pas
+                case 4://OK
                 cout << "Votre choix : 4" << endl;
+                cout << "Valeur de remplacement : " << endl;
+                cin >> valeur;
                 try {
-
-                    cout << "Sommet : " << top(tbl,compteur,valeur) << endl;
+                    top(tbl,compteur) = valeur;
+                    cout << "Valeur remplacée." << endl;
                 }
                 catch (const std::underflow_error& e) {
                     cout << "Erreur : " << e.what() << endl;
@@ -85,7 +91,14 @@ int main() {
                 break;
                 case 5://OK
                 cout << "Votre choix : 5" << endl;
-                afficher_empty(compteur);
+
+                if (empty(compteur)) {
+                    cout << "La pile est vide." << endl;
+                }
+                else {
+                    cout << "La pile n'est pas vide." << endl;
+                }
+
                 break;
                 case 6://OK
                 cout << "Votre choix : 6" << endl;
@@ -96,23 +109,10 @@ int main() {
                 clear(compteur);
                 cout << "Pile vidée." << endl;
                 break;
-                case 8:
+                case 8://OK
                 cout << "Votre choix : 8" << endl;
 
-                for (size_t i = tbl.size()-1; i < capacite; --i) {
-                    if (i == tbl.size()-1) {
-                        cout << "Sommet -> " << setw(10) << endl;
-                        continue;
-                    }
-
-                    else if (i == 0) {
-                        cout << setw(0) << "Fond -> " << setw(2) << tbl.at(i) << setw(0) << endl;
-                        break;
-                    }
-                    else {
-                        cout  << tbl.at(i) << endl;
-                    }
-                }
+                show(tbl_lecture,compteur);
 
                 break;
                 default: break;
